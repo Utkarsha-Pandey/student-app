@@ -8,25 +8,34 @@ const BottomNav = () => {
   const navItems = [
     { icon: Home, label: 'Home', path: '/' },
     { icon: Trophy, label: 'Learn', path: '/quiz' },
-    { icon: Phone, label: 'Call', path: '/call' }, // Placeholder route
-    { icon: User, label: 'Profile', path: '/profile' }, // Placeholder route
+    { icon: Phone, label: 'Call', path: '/call' },
+    { icon: User, label: 'Profile', path: '/profile' },
   ];
 
   return (
-    <div className="fixed bottom-0 w-full max-w-md bg-white border-t border-gray-100 pb-4 pt-2 px-6 flex justify-between items-center z-50">
-      {navItems.map((item) => {
-        const isActive = location.pathname === item.path;
-        return (
-          <button 
-            key={item.label}
-            onClick={() => navigate(item.path)}
-            className={`flex flex-col items-center gap-1 ${isActive ? 'text-brand-green' : 'text-gray-400'}`}
-          >
-            <item.icon size={24} fill={isActive ? "currentColor" : "none"} />
-            <span className="text-xs font-medium">{item.label}</span>
-          </button>
-        )
-      })}
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 pt-3 pb-4 z-50">
+      <div className="flex justify-around items-center">
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.path;
+          return (
+            <button
+              key={item.label}
+              onClick={() => navigate(item.path)}
+              className="flex flex-col items-center gap-2 transition-colors"
+            >
+              <item.icon 
+                size={28} 
+                strokeWidth={1.5}
+                fill={isActive ? 'currentColor' : 'none'}
+                className={isActive ? 'text-brand-green' : 'text-gray-400'}
+              />
+              <span className={`text-xs font-medium ${isActive ? 'text-brand-green' : 'text-gray-400'}`}>
+                {item.label}
+              </span>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };

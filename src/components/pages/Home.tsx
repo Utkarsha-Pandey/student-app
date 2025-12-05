@@ -82,7 +82,7 @@ const Home = () => {
   return (
     <div className="bg-white min-h-screen min-w-screen">
       {/* HEADER */}
-      <header className="bg-brand-green rounded-b-3xl px-6 pt-6 pb-8 text-white shadow-md">
+      <header className="bg-green-500 rounded-b-3xl px-6 pt-6 pb-8 text-white shadow-md">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-full bg-pink-300 border-2 border-white overflow-hidden flex-shrink-0">
@@ -93,8 +93,8 @@ const Home = () => {
               />
             </div>
             <div>
-              <p className="text-sm font-medium text-green-100">Good Afternoon</p>
-              <h1 className="text-3xl font-extrabold">Diya</h1>
+              <p className="text-sm font-medium text-green-100">Good Night</p>
+              <h1 className="text-3xl font-extrabold">Lorenzo</h1>
             </div>
           </div>
 
