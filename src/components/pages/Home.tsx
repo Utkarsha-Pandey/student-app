@@ -1,8 +1,23 @@
-import { Play, Video, BookOpen, UserPlus,Bot, Phone, Trophy, Zap } from 'lucide-react';
+import { Video, BookOpen, Bot, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../layout/BottomNav';
-import FountainImg from '../../Fountain.png';
-import ChoosingPathImg from '../../Choosing_path.png';
+
+// Image Imports
+import FountainImg from '../../assets/Fountain.png';
+import ChoosingPathImg from '../../assets/Choosing_path.png';
+import ArabianNights from '../../assets/arabian.png';
+import Swara from '../../assets/swara-beach.png';
+import Focus from '../../assets/focus.png';
+import Library from '../../assets/library.png';
+import Wonder from '../../assets/wonders.png';
+import Spiderman from '../../assets/spiderman.svg';
+import Doraemon from '../../assets/doremon.svg';
+import Shinchan from '../../assets/shinchan.png';
+import Kohli from '../../assets/king_virat_kohlii.webp';
+import Shashi from '../../assets/shashi__tharoor.webp';
+import animal from '../../assets/animals.webp';
+import school from '../../assets/school.webp';
+import hobbies from '../../assets/hobbies.jpg';
 
 interface Story {
   id: number;
@@ -16,56 +31,63 @@ interface PracticeCard {
   description?: string;
   bgImage?: string;
   bgColor?: string;
+  img?: string; // Added img property here
 }
 
 const STORIES: Story[] = [
-  { id: 1, title: 'Arabian Nights', img: 'https://images.unsplash.com/photo-1499209974033-907671109243?auto=format&fit=crop&q=80&w=500&h=700' },
-  { id: 2, title: 'Bridges at the Breakfast', img: 'https://images.unsplash.com/photo-1513002749550-c59a90b50e6d?auto=format&fit=crop&q=80&w=500&h=700' },
-  { id: 3, title: 'Choosing the right path', img: ChoosingPathImg },
-  { id: 4, title: 'The Fountain and the Mayor', img: FountainImg },
-  { id: 5, title: 'The Library of Dreams', img: 'https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=500&h=700' },
-  { id: 6, title: 'The Power of Focus', img: 'https://images.unsplash.com/photo-1514306688772-aadcb36c4bee?auto=format&fit=crop&q=80&w=500&h=700' },
-  { id: 7, title: 'Year of Wonders', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=500&h=700' },
+  { id: 1, title: 'Choosing the right path', img: ChoosingPathImg  },
+  { id: 2, title: 'The Fountain and the Mayor', img: FountainImg  },
+  { id: 3, title: 'The Arabian Nights', img: ArabianNights },
+  { id: 4, title: 'Swara at the Beach', img: Swara },
+  { id: 5, title: 'The Library of Dreams', img: Library },
+  { id: 6, title: 'The Power of Focus', img: Focus },
+  { id: 7, title: 'Year of Wonders', img: Wonder },
 ];
 
 const PRACTICE_HUMANS: PracticeCard[] = [
   {
     title: 'Favorite Animals',
     description: 'Talk about your favorite animals and pets',
-    bgImage: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8c4d3e?auto=format&fit=crop&q=80&w=800',
+    bgImage: animal,
   },
   {
     title: 'Hobbies & Fun',
     description: 'Share what you love to do in your free time',
-    bgImage: 'https://images.unsplash.com/photo-1503454537688-e6c8ff1e6aa0?auto=format&fit=crop&q=80&w=800',
+    bgImage: hobbies,
   },
   {
     title: 'School Life',
     description: 'Chat about school, friends, and learning',
-    bgImage: 'https://images.unsplash.com/photo-1427504494785-cdm0505ebc30?auto=format&fit=crop&q=80&w=800',
+    bgImage: school,
   },
 ];
 
+// Updated Array with Images
 const PRACTICE_AI: PracticeCard[] = [
   {
     title: 'Talk with Doraemon',
     bgColor: 'bg-blue-100',
+    img: Doraemon, 
   },
   {
     title: 'Talk with Spider Man',
     bgColor: 'bg-pink-100',
+    img: Spiderman,
   },
   {
     title: 'Talk with Shinchan',
     bgColor: 'bg-green-100',
+    img: Shinchan,
   },
   {
     title: 'Talk with Virat Kohli',
     bgColor: 'bg-cyan-100',
+    img: Kohli,
   },
   {
     title: 'Talk with Shashi Tharoor',
     bgColor: 'bg-amber-100',
+    img: Shashi,
   },
 ];
 
@@ -152,30 +174,24 @@ const Home = () => {
 
       {/* CIRCLE ACTIONS */}
       <section className="px-4 py-8">
-      {/* Container: Max width set for larger screens, Grid for perfect spacing */}
-      <div className="w-full max-w-6xl mx-auto flex justify-between items-center px-2 md:px-12">
-        {CIRCLE_ACTIONS.map((item, idx) => (
-          <div key={idx} className="flex flex-col items-center gap-2 cursor-pointer group">
-            
-            {/* 1. Outer White Ring with Shadow */}
-            <div className="p-1.5 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-transform transform group-hover:-translate-y-1">
-              
-              {/* 2. Inner Colored Circle */}
-              <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center ${item.color}`}>
-                <item.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${item.iconColor}`} strokeWidth={2} />
+        <div className="w-full max-w-6xl mx-auto flex justify-between items-center px-2 md:px-12">
+          {CIRCLE_ACTIONS.map((item, idx) => (
+            <div key={idx} className="flex flex-col items-center gap-2 cursor-pointer group">
+              {/* 1. Outer White Ring with Shadow */}
+              <div className="p-1.5 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-transform transform group-hover:-translate-y-1">
+                {/* 2. Inner Colored Circle */}
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center ${item.color}`}>
+                  <item.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${item.iconColor}`} strokeWidth={2} />
+                </div>
               </div>
-
+              {/* Label */}
+              <span className="text-[11px] sm:text-sm font-semibold text-gray-700 text-center leading-tight">
+                {item.label}
+              </span>
             </div>
-
-            {/* Label */}
-            <span className="text-[11px] sm:text-sm font-semibold text-gray-700 text-center leading-tight">
-              {item.label}
-            </span>
-            
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
 
       {/* AUDIO STORIES */}
       <section className="px-6 py-4">
@@ -210,43 +226,58 @@ const Home = () => {
 
       {/* PRACTICE WITH HUMANS */}
       <section className="px-6 py-8">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            <span className="text-pink-400">📞</span> Practice with Humans
-          </h2>
-          <button className="text-green-600 text-sm font-semibold hover:underline">Show all →</button>
-        </div>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <span className="text-pink-400">📞</span> Practice with Humans
+        </h2>
+        <button className="text-green-600 text-sm font-semibold hover:underline">
+          Show all →
+        </button>
+      </div>
 
-        <div className="flex gap-4 overflow-x-auto pb-6 scroll-smooth">
-          {PRACTICE_HUMANS.map((card, idx) => (
-            <div
-              key={idx}
-              className="flex-shrink-0 rounded-2xl overflow-hidden shadow-md w-80 sm:w-96 h-44 relative group cursor-pointer"
-              style={{
-                backgroundImage: `url(${card.bgImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-              <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                <div>
-                  <span className="bg-gray-700/60 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block">
-                    Be first!
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-white text-lg font-bold">{card.title}</h3>
-                  <p className="text-white/80 text-xs mt-1">{card.description}</p>
-                </div>
+      <div className="flex gap-4 overflow-x-auto pb-6 scroll-smooth">
+        {/* TypeScript now knows 'card' is of type 'PracticeCard' */}
+        {PRACTICE_HUMANS.map((card, idx) => (
+          <div
+            key={idx}
+            className="flex-shrink-0 rounded-2xl overflow-hidden shadow-md w-80 sm:w-96 h-48 relative group cursor-pointer"
+            style={{
+              backgroundImage: `url(${card.bgImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+            {/* Content Container */}
+            <div className="absolute inset-0 p-5 flex flex-col justify-between">
+              {/* Badge - Aligned to the Right */}
+              <div className="flex justify-end">
+                <span className="bg-gray-800/60 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                  Be first!
+                </span>
               </div>
-              <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 text-brand-green font-bold rounded-full py-3 px-12 text-sm hover:bg-white transition-colors">
-                Join & Start Call
-              </button>
+
+              {/* Text Content */}
+              <div className="mb-12">
+                <h3 className="text-white text-lg font-bold leading-tight">
+                  {card.title}
+                </h3>
+                <p className="text-white/90 text-xs mt-1 font-medium">
+                  {card.description}
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+
+            {/* Button */}
+            <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-green-600 font-bold rounded-full py-2.5 w-[90%] text-sm hover:bg-gray-50 transition-colors shadow-sm">
+              Join & Start Call
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
 
       {/* PRACTICE WITH AI */}
       <section className="px-6 py-8 mb-8">
@@ -265,7 +296,7 @@ const Home = () => {
             >
               <div className={`w-full h-32 rounded-lg ${card.bgColor} flex items-center justify-center mb-3`}>
                 <img 
-                  src={ChoosingPathImg} 
+                  src={card.img} 
                   alt={card.title}
                   className="w-full h-full object-cover rounded-lg"
                 />
