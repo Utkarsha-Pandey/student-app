@@ -1,4 +1,4 @@
-import { Play, Video, BookOpen, UserPlus, Phone, Trophy, Zap } from 'lucide-react';
+import { Play, Video, BookOpen, UserPlus,Bot, Phone, Trophy, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../layout/BottomNav';
 import FountainImg from '../../Fountain.png';
@@ -21,8 +21,8 @@ interface PracticeCard {
 const STORIES: Story[] = [
   { id: 1, title: 'Arabian Nights', img: 'https://images.unsplash.com/photo-1499209974033-907671109243?auto=format&fit=crop&q=80&w=500&h=700' },
   { id: 2, title: 'Bridges at the Breakfast', img: 'https://images.unsplash.com/photo-1513002749550-c59a90b50e6d?auto=format&fit=crop&q=80&w=500&h=700' },
-  { id: 3, title: 'Swara at the Beach', img: ChoosingPathImg },
-  { id: 4, title: 'Swara in the Forest', img: FountainImg },
+  { id: 3, title: 'Choosing the right path', img: ChoosingPathImg },
+  { id: 4, title: 'The Fountain and the Mayor', img: FountainImg },
   { id: 5, title: 'The Library of Dreams', img: 'https://images.unsplash.com/photo-1507842217343-583f20270319?auto=format&fit=crop&q=80&w=500&h=700' },
   { id: 6, title: 'The Power of Focus', img: 'https://images.unsplash.com/photo-1514306688772-aadcb36c4bee?auto=format&fit=crop&q=80&w=500&h=700' },
   { id: 7, title: 'Year of Wonders', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=500&h=700' },
@@ -70,10 +70,30 @@ const PRACTICE_AI: PracticeCard[] = [
 ];
 
 const CIRCLE_ACTIONS = [
-  { icon: Video, label: 'Video Learning', color: 'bg-blue-100 text-blue-600' },
-  { icon: UserPlus, label: 'Peer Calls', color: 'bg-cyan-100 text-cyan-600' },
-  { icon: BookOpen, label: 'Stories', color: 'bg-orange-100 text-orange-600' },
-  { icon: Play, label: 'AI Calls', color: 'bg-red-100 text-red-600' },
+  { 
+    label: "Video Learning", 
+    color: "bg-blue-100", 
+    iconColor: "text-blue-600",
+    icon: Video 
+  },
+  { 
+    label: "Peer Calls", 
+    color: "bg-cyan-100", 
+    iconColor: "text-cyan-600",
+    icon: Phone 
+  },
+  { 
+    label: "Stories", 
+    color: "bg-orange-100", 
+    iconColor: "text-orange-600",
+    icon: BookOpen 
+  },
+  { 
+    label: "AI Calls", 
+    color: "bg-pink-100", 
+    iconColor: "text-pink-600",
+    icon: Bot 
+  },
 ];
 
 const Home = () => {
@@ -102,7 +122,7 @@ const Home = () => {
             <div className="bg-white/20 backdrop-blur-sm p-2 rounded-full">
               <span className="text-sm font-bold">❤️ 30</span>
             </div>
-            <span className="bg-brand-orange px-4 py-1 rounded-full font-bold text-xs">PRO</span>
+            <span className="bg-orange-400 px-4 py-1 rounded-full font-bold text-xs">PRO</span>
           </div>
         </div>
 
@@ -131,18 +151,31 @@ const Home = () => {
       </header>
 
       {/* CIRCLE ACTIONS */}
-      <section className="px-6 py-8 -mt-6">
-        <div className="flex justify-around items-center max-w-4xl mx-auto">
-          {CIRCLE_ACTIONS.map((item, idx) => (
-            <div key={idx} className="flex flex-col items-center gap-3">
-              <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-md ${item.color}`}>
-                <item.icon size={28} strokeWidth={1.5} />
+      <section className="px-4 py-8">
+      {/* Container: Max width set for larger screens, Grid for perfect spacing */}
+      <div className="w-full max-w-6xl mx-auto flex justify-between items-center px-2 md:px-12">
+        {CIRCLE_ACTIONS.map((item, idx) => (
+          <div key={idx} className="flex flex-col items-center gap-2 cursor-pointer group">
+            
+            {/* 1. Outer White Ring with Shadow */}
+            <div className="p-1.5 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-transform transform group-hover:-translate-y-1">
+              
+              {/* 2. Inner Colored Circle */}
+              <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center ${item.color}`}>
+                <item.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${item.iconColor}`} strokeWidth={2} />
               </div>
-              <span className="text-xs sm:text-sm font-semibold text-gray-700 text-center">{item.label}</span>
+
             </div>
-          ))}
-        </div>
-      </section>
+
+            {/* Label */}
+            <span className="text-[11px] sm:text-sm font-semibold text-gray-700 text-center leading-tight">
+              {item.label}
+            </span>
+            
+          </div>
+        ))}
+      </div>
+    </section>
 
       {/* AUDIO STORIES */}
       <section className="px-6 py-4">
@@ -150,7 +183,7 @@ const Home = () => {
           <h2 className="text-xl font-bold flex items-center gap-2">
             <span>✨</span> Audio Stories
           </h2>
-          <button className="text-brand-green text-sm font-semibold hover:underline">Show all →</button>
+          <button className="text-green-600 text-sm font-semibold hover:underline">Show all →</button>
         </div>
 
         <div className="flex gap-4 overflow-x-auto pb-4 scroll-smooth">
@@ -181,7 +214,7 @@ const Home = () => {
           <h2 className="text-xl font-bold flex items-center gap-2">
             <span className="text-pink-400">📞</span> Practice with Humans
           </h2>
-          <button className="text-brand-green text-sm font-semibold hover:underline">Show all →</button>
+          <button className="text-green-600 text-sm font-semibold hover:underline">Show all →</button>
         </div>
 
         <div className="flex gap-4 overflow-x-auto pb-6 scroll-smooth">
@@ -221,7 +254,7 @@ const Home = () => {
           <h2 className="text-xl font-bold flex items-center gap-2">
             <span className="text-pink-400">🤖</span> Practice with AI
           </h2>
-          <button className="text-brand-green text-sm font-semibold hover:underline">Show all →</button>
+          <button className="text-green-600 text-sm font-semibold hover:underline">Show all →</button>
         </div>
 
         <div className="flex gap-4 overflow-x-auto pb-6 scroll-smooth">

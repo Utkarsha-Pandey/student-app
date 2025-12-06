@@ -27,9 +27,9 @@ const BottomNav = () => {
                 size={28} 
                 strokeWidth={1.5}
                 fill={isActive ? 'currentColor' : 'none'}
-                className={isActive ? 'text-brand-green' : 'text-gray-400'}
+                className={isActive ? 'text-green-600' : 'text-gray-400'}
               />
-              <span className={`text-xs font-medium ${isActive ? 'text-brand-green' : 'text-gray-400'}`}>
+              <span className={`text-xs font-medium ${isActive ? 'text-green-600' : 'text-gray-400'}`}>
                 {item.label}
               </span>
             </button>
