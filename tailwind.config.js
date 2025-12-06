@@ -7,11 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          green: '#10B981', // Matches the Home Screen green
-          light: '#D1FAE5',
-          orange: '#F97316', // Matches "PRO" badge
-        },
+        'brand-green': '#10B981',
+        'brand-light': '#D1FAE5',
+        'brand-orange': '#F97316',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

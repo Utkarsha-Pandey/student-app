@@ -7,42 +7,140 @@ const Quiz = () => {
   const [difficulty, setDifficulty] = useState('Medium');
 
   const levels = [
-    { title: 'Easy', desc: 'Short sentences.', color: 'border-green-200 bg-green-50', icon: Lightbulb },
-    { title: 'Medium', desc: 'Everyday situations.', color: 'border-yellow-200 bg-yellow-50', icon: Sparkles },
-    { title: 'Hard', desc: 'Tricky choices.', color: 'border-purple-200 bg-purple-50', icon: Target },
+    { 
+      title: 'Easy', 
+      desc: 'Short sentences & gentle vocabulary.', 
+      themeText: 'text-green-600', 
+      themeBg: 'bg-green-50',       
+      themeBorder: 'border-green-200', 
+      icon: Lightbulb 
+    },
+    { 
+      title: 'Medium', 
+      desc: 'Everyday situations with detail.', 
+      themeText: 'text-orange-500', 
+      themeBg: 'bg-orange-50',      
+      themeBorder: 'border-orange-200', 
+      icon: Sparkles 
+    },
+    { 
+      title: 'Hard', 
+      desc: 'Longer thinking and tricky choices.', 
+      themeText: 'text-purple-600', 
+      themeBg: 'bg-purple-50',      
+      themeBorder: 'border-purple-200', 
+      icon: Target 
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-24 p-6">
-        <button onClick={() => navigate('/')} className="flex items-center gap-2 text-brand-green font-bold mb-6 bg-white px-4 py-2 rounded-full w-fit shadow-sm"><ArrowLeft size={18}/> Back</button>
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">Craft a custom quiz</h1>
-        
-        <div className="bg-white p-6 rounded-2xl shadow-sm mb-4 border border-gray-100 mt-4">
-           <label className="text-brand-green font-bold text-xs tracking-wider mb-2 block">STEP 1: TOPIC</label>
-           <input type="text" placeholder='e.g. "Space"' className="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-700 focus:outline-brand-green mb-4"/>
-           <div className="flex flex-wrap gap-2">
-              {['Solar System', 'Healthy Habits'].map(tag => (
-                 <button key={tag} className="px-3 py-1.5 bg-gray-100 rounded-lg text-xs font-semibold text-gray-600">{tag}</button>
-              ))}
-           </div>
-        </div>
+    <div className="min-h-screen bg-gray-50 p-4 md:p-6 font-sans">
+      
+      {/* Header Back Button */}
+      <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-green-600 mb-6 font-bold text-sm hover:opacity-80 transition-opacity">
+        <ArrowLeft size={20} strokeWidth={2.5} />
+        Back
+      </button>
 
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-           <label className="text-brand-green font-bold text-xs tracking-wider mb-2 block">STEP 2: LEVEL</label>
-           <div className="space-y-3">
-              {levels.map((lvl) => (
-                <div key={lvl.title} onClick={() => setDifficulty(lvl.title)}
-                   className={`p-4 rounded-xl border-2 cursor-pointer flex justify-between items-center ${difficulty === lvl.title ? lvl.color + ' border-brand-green' : 'border-gray-100 bg-white'}`}>
-                   <div><h3 className="font-bold">{lvl.title}</h3><p className="text-xs text-gray-500">{lvl.desc}</p></div>
-                   <lvl.icon className={difficulty === lvl.title ? 'text-brand-green' : 'text-gray-300'} size={20} />
-                </div>
-              ))}
-           </div>
+      {/* --- BOX 1: LEARN TAB --- */}
+      <div className="bg-white p-6 rounded-3xl shadow-sm mb-6">
+        <label className="text-green-600 font-bold text-[11px] tracking-widest uppercase mb-3 block">Learn Tab</label>
+        <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Craft a custom quiz</h2>
+        <p className="text-gray-500 text-sm mb-6 leading-relaxed">Pick a topic, choose difficulty, and we will build four fun questions instantly.</p>
+        
+        <div className="flex flex-wrap gap-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 rounded-lg text-green-700 font-bold text-xs cursor-default">
+            <Sparkles size={14} fill="currentColor" className="text-green-600" />
+            AI Powered
+          </div>
+          <div className="px-3 py-1.5 bg-gray-100 rounded-lg text-gray-600 font-bold text-xs">4 Questions</div>
+          <div className="px-3 py-1.5 bg-gray-100 rounded-lg text-gray-600 font-bold text-xs">Instant play</div>
         </div>
-        <div className="fixed bottom-0 left-0 w-full p-4 bg-white border-t">
-          <button className="w-full max-w-md mx-auto block bg-gray-300 text-white font-bold py-3 rounded-xl">Generate Quiz</button>
       </div>
+
+      {/* --- BOX 2: STEP 1 --- */}
+      <div className="bg-white p-6 rounded-3xl shadow-sm mb-6">
+        <label className="text-green-600 font-bold text-[11px] tracking-widest uppercase mb-3 block">Step 1</label>
+        <h3 className="text-xl font-bold text-gray-900 mb-4">Choose a topic</h3>
+        
+        <input 
+          type="text" 
+          placeholder='e.g. "My school day" or "Planets in space"' 
+          className="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6 text-sm placeholder-gray-400 outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all" 
+        />
+        
+        <div className="flex flex-wrap gap-2.5">
+          {['My Best Friend', 'Cricket Basics', 'Solar System', 'Healthy Habits', 'Animals & Birds', 'School Picnic'].map((tag) => (
+             <button key={tag} className="px-4 py-2 bg-gray-100 rounded-full text-gray-700 font-bold text-xs hover:bg-gray-200 transition-colors">
+               {tag}
+             </button>
+          ))}
+        </div>
+      </div>
+
+      {/* --- BOX 3: STEP 2 --- */}
+      <div className="bg-white p-6 rounded-3xl shadow-sm mb-6">
+        <label className="text-green-600 font-bold text-[11px] tracking-widest uppercase mb-3 block">Step 2</label>
+        <h1 className="text-xl font-bold text-gray-900 mb-6">Pick a challenge level</h1>
+
+        <div className="space-y-4">
+          {levels.map((lvl) => {
+            const isSelected = difficulty === lvl.title;
+            return (
+              <div 
+                key={lvl.title} 
+                onClick={() => setDifficulty(lvl.title)}
+                className={`relative p-5 rounded-[1.5rem] border-2 cursor-pointer flex justify-between items-start transition-all duration-200 ${
+                  isSelected 
+                    ? `${lvl.themeBg} border-green-400 shadow-sm` 
+                    : `${lvl.themeBg} ${lvl.themeBorder} opacity-70 hover:opacity-100`
+                }`}
+              >
+                <div className="flex-1 pr-4">
+                  <h3 className={`font-bold text-base ${lvl.themeText}`}>{lvl.title}</h3>
+                  <p className="text-gray-600 text-[13px] mt-1 font-medium leading-relaxed">{lvl.desc}</p>
+                  {isSelected && (
+                    <span className="inline-block mt-3 bg-green-100 text-green-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">Selected</span>
+                  )}
+                </div>
+                <lvl.icon className={lvl.themeText} size={22} strokeWidth={2.5} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* --- BOX 4: INFO CARD (The Green Part) --- */}
+      <div className="bg-green-500 text-white p-6 rounded-3xl shadow-lg mb-4 relative overflow-hidden">
+        <label className="font-bold text-[10px] tracking-widest mb-3 block opacity-80 uppercase">What you'll get</label>
+        <h3 className="text-lg font-bold mb-4 leading-tight">Friendly quiz with instant feedback</h3>
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <span className="text-white/60 mt-1 text-[10px]">●</span>
+            <span className="text-sm font-medium text-green-50">Bite-sized explanations for every answer.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-white/60 mt-1 text-[10px]">●</span>
+            <span className="text-sm font-medium text-green-50">Tone automatically matches the learner profile.</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* --- THE FIX: SPACER DIV --- */}
+      {/* This empty div forces the page to be taller, allowing you to scroll past the fixed button */}
+      <div className="h-40 w-full" aria-hidden="true"></div>
+
+      {/* --- FIXED FOOTER BUTTON --- */}
+      <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 pb-6 z-50">
+        <div className="max-w-md mx-auto w-full"> 
+            <button className="w-full bg-gray-300 text-white font-bold py-4 rounded-2xl text-base shadow-sm hover:bg-gray-400 transition-colors cursor-not-allowed">
+              Generate Quiz
+            </button>
+        </div>
+      </div>
+
     </div>
   );
 };
+
 export default Quiz;
