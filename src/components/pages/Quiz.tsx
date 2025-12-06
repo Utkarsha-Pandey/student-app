@@ -36,13 +36,11 @@ const Quiz = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-6 font-sans">
       
-      {/* Header Back Button */}
       <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-green-600 mb-6 font-bold text-sm hover:opacity-80 transition-opacity">
         <ArrowLeft size={20} strokeWidth={2.5} />
         Back
       </button>
 
-      {/* --- BOX 1: LEARN TAB --- */}
       <div className="bg-white p-6 rounded-3xl shadow-sm mb-6">
         <label className="text-green-600 font-bold text-[11px] tracking-widest uppercase mb-3 block">Learn Tab</label>
         <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Craft a custom quiz</h2>
@@ -58,7 +56,6 @@ const Quiz = () => {
         </div>
       </div>
 
-      {/* --- BOX 2: STEP 1 --- */}
       <div className="bg-white p-6 rounded-3xl shadow-sm mb-6">
         <label className="text-green-600 font-bold text-[11px] tracking-widest uppercase mb-3 block">Step 1</label>
         <h3 className="text-xl font-bold text-gray-900 mb-4">Choose a topic</h3>
@@ -78,7 +75,6 @@ const Quiz = () => {
         </div>
       </div>
 
-      {/* --- BOX 3: STEP 2 --- */}
       <div className="bg-white p-6 rounded-3xl shadow-sm mb-6">
         <label className="text-green-600 font-bold text-[11px] tracking-widest uppercase mb-3 block">Step 2</label>
         <h1 className="text-xl font-bold text-gray-900 mb-6">Pick a challenge level</h1>
@@ -110,7 +106,6 @@ const Quiz = () => {
         </div>
       </div>
 
-      {/* --- BOX 4: INFO CARD (The Green Part) --- */}
       <div className="bg-green-500 text-white p-6 rounded-3xl shadow-lg mb-4 relative overflow-hidden">
         <label className="font-bold text-[10px] tracking-widest mb-3 block opacity-80 uppercase">What you'll get</label>
         <h3 className="text-lg font-bold mb-4 leading-tight">Friendly quiz with instant feedback</h3>
@@ -126,11 +121,8 @@ const Quiz = () => {
         </ul>
       </div>
 
-      {/* --- THE FIX: SPACER DIV --- */}
-      {/* This empty div forces the page to be taller, allowing you to scroll past the fixed button */}
       <div className="h-40 w-full" aria-hidden="true"></div>
 
-      {/* --- FIXED FOOTER BUTTON --- */}
       <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 pb-6 z-50">
         <div className="max-w-md mx-auto w-full"> 
             <button className="w-full bg-gray-300 text-white font-bold py-4 rounded-2xl text-base shadow-sm hover:bg-gray-400 transition-colors cursor-not-allowed">
