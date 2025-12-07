@@ -6,7 +6,7 @@ import Quiz from './components/pages/Quiz';
 function App() {
   return (
     <BrowserRouter>
-      {/* max-w-md ensures it looks like a mobile app on desktop screens */}
+     
       <div className=" mx-auto min-h-screen bg-gray-50 shadow-2xl relative overflow-hidden">
         <Routes>
           <Route path="/" element={<Home />} />

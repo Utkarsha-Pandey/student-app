@@ -62,7 +62,7 @@ const PRACTICE_HUMANS: PracticeCard[] = [
   },
 ];
 
-// Updated Array with Images
+
 const PRACTICE_AI: PracticeCard[] = [
   {
     title: 'Talk with Doraemon',
@@ -123,7 +123,7 @@ const Home = () => {
 
   return (
     <div className="bg-white min-h-screen min-w-screen">
-      {/* HEADER */}
+    
       <header className="bg-green-500 rounded-b-3xl px-6 pt-6 pb-8 text-white shadow-md">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-4">
@@ -148,7 +148,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* XP PROGRESS CARD */}
+    
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center font-bold text-lg">
@@ -172,19 +172,18 @@ const Home = () => {
         </div>
       </header>
 
-      {/* CIRCLE ACTIONS */}
       <section className="px-4 py-8">
         <div className="w-full max-w-6xl mx-auto flex justify-between items-center px-2 md:px-12">
           {CIRCLE_ACTIONS.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center gap-2 cursor-pointer group">
-              {/* 1. Outer White Ring with Shadow */}
+             
               <div className="p-1.5 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-transform transform group-hover:-translate-y-1">
-                {/* 2. Inner Colored Circle */}
+             
                 <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center ${item.color}`}>
                   <item.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${item.iconColor}`} strokeWidth={2} />
                 </div>
               </div>
-              {/* Label */}
+           
               <span className="text-[11px] sm:text-sm font-semibold text-gray-700 text-center leading-tight">
                 {item.label}
               </span>
@@ -193,7 +192,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* AUDIO STORIES */}
+   
       <section className="px-6 py-4">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold flex items-center gap-2">
@@ -224,7 +223,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* PRACTICE WITH HUMANS */}
+    
       <section className="px-6 py-8">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold flex items-center gap-2">
@@ -236,7 +235,7 @@ const Home = () => {
       </div>
 
       <div className="flex gap-4 overflow-x-auto pb-6 scroll-smooth">
-        {/* TypeScript now knows 'card' is of type 'PracticeCard' */}
+     
         {PRACTICE_HUMANS.map((card, idx) => (
           <div
             key={idx}
@@ -247,19 +246,17 @@ const Home = () => {
               backgroundPosition: "center",
             }}
           >
-            {/* Gradient Overlay */}
+          
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
-            {/* Content Container */}
             <div className="absolute inset-0 p-5 flex flex-col justify-between">
-              {/* Badge - Aligned to the Right */}
+             
               <div className="flex justify-end">
                 <span className="bg-gray-800/60 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                   Be first!
                 </span>
               </div>
 
-              {/* Text Content */}
+             
               <div className="mb-12">
                 <h3 className="text-white text-lg font-bold leading-tight">
                   {card.title}
@@ -270,7 +267,7 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Button */}
+         
             <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-green-600 font-bold rounded-full py-2.5 w-[90%] text-sm hover:bg-gray-50 transition-colors shadow-sm">
               Join & Start Call
             </button>
@@ -279,7 +276,7 @@ const Home = () => {
       </div>
     </section>
 
-      {/* PRACTICE WITH AI */}
+   
       <section className="px-6 py-8 mb-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold flex items-center gap-2">

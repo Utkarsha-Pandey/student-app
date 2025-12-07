@@ -19,7 +19,7 @@ const Player = () => {
   return (
     <div className="bg-emerald-50 h-[100dvh] w-full flex flex-col relative overflow-hidden font-sans">
         
-        {/* --- HEADER --- */}
+      
         <div className="flex justify-between items-center p-4 md:px-12 md:py-8 z-10 shrink-0">
             <button 
               onClick={() => navigate(-1)} 
@@ -47,10 +47,9 @@ const Player = () => {
             </div>
         </div>
 
-        {/* --- MAIN CONTENT AREA --- */}
         <div className="flex-1 flex flex-col items-center justify-evenly px-6 md:px-0 w-full max-w-5xl mx-auto min-h-0">
             
-            {/* Album Art */}
+          
             <div className="w-full max-w-[280px] md:max-w-3xl relative z-0 shrink-1">
                 <div className="bg-white p-3 rounded-[2rem] shadow-xl">
                     <img 
@@ -61,11 +60,9 @@ const Player = () => {
                 </div>
             </div>
 
-            {/* Track Info Container */}
-            {/* FIX 1: Removed bottom margin (mb-8) on mobile to prevent pushing content down */}
+            
             <div className="w-full max-w-sm md:max-w-2xl shrink-0 mb-1 md:mb-8">
-                
-                {/* 1. Desktop Layout (Hidden on Mobile) */}
+              
                 <div className="hidden md:flex items-end justify-between text-left mb-6">
                     <div>
                         <div className="flex items-center gap-4 mb-2">
@@ -82,8 +79,7 @@ const Player = () => {
                     </div>
                 </div>
 
-                {/* 2. Mobile Layout (Hidden on Desktop) */}
-                {/* FIX 2: Moved Heart icon inline with Title to save vertical space */}
+              
                 <div className="md:hidden flex flex-col items-center text-center mb-4">
                     <div className="flex items-center justify-center gap-3 mb-1">
                         <h1 className="text-2xl font-bold text-gray-900 leading-tight">
@@ -98,7 +94,7 @@ const Player = () => {
                     </p>
                 </div>
 
-                {/* Test Your Understanding Button */}
+           
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 md:py-4 px-6 rounded-2xl shadow-lg shadow-green-200 flex items-center justify-center gap-3 transition-transform active:scale-95">
                     <ClipboardList size={20} /> 
                     <span className="text-sm md:text-base tracking-wide">Test Your Understanding</span>
@@ -107,10 +103,8 @@ const Player = () => {
             </div>
         </div>
 
-        {/* --- FOOTER CONTROLS --- */}
         <div className="px-6 pb-6 pt-2 md:px-8 md:pb-12 w-full max-w-5xl mx-auto shrink-0 z-20 bg-emerald-50">
-            
-            {/* Progress Bar */}
+        
             <div className="relative w-full h-1.5 bg-gray-200 rounded-full mb-2 cursor-pointer group">
                 <div className="absolute top-0 left-0 h-full bg-green-500 w-1/3 rounded-full relative">
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-green-500 rounded-full shadow opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -122,7 +116,6 @@ const Player = () => {
                 <span>2:18</span>
             </div>
 
-            {/* Control Buttons Row */}
             <div className="flex justify-between items-center text-gray-400 md:px-12">
                 <button className="hover:text-gray-600 transition-colors hidden sm:block">
                     <Volume2 size={24} />
